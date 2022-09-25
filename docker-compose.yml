@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  lb:
+    image: haproxy:2.2
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  app1:
+    build:
+      context: .
+    environment:
+      - PORT=1111
+  app2:
+    build:
+      context: .
+    environment:
+      - PORT=2222
+  app3:
+    build:
+      context: .
+    environment:
+      - PORT=3333
+  app4:
+    build:
+      context: .
+    environment:
+      - PORT=4444

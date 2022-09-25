@@ -1,8 +1,10 @@
 import { Request, Response } from 'express';
+import environment from '../utils/environment';
 
 export const getUsers = (req: Request, res: Response) => {
     res.json({
-        msg: 'getUsers'
+        msg: 'getUsers',
+        lb: `http://localhost:${environment.PORT}`
     });
 }
 
@@ -11,7 +13,8 @@ export const getUser = (req: Request, res: Response) => {
 
     res.json({
         msg: 'getUser',
-        id
+        id,
+        lb: `http://localhost:${environment.PORT}`
     });
 }
 
@@ -20,7 +23,8 @@ export const postUser = (req: Request, res: Response) => {
 
     res.json({
         msg: 'postUser',
-        body
+        body,
+        lb: `http://localhost:${environment.PORT}`
     });
 }
 
@@ -31,7 +35,8 @@ export const putUser = (req: Request, res: Response) => {
     res.json({
         msg: 'postUser',
         id,
-        body
+        body,
+        lb: `http://localhost:${environment.PORT}`
     });
 }
 
@@ -40,6 +45,7 @@ export const deleteUser = (req: Request, res: Response) => {
 
     res.json({
         msg: 'deleteUser',
-        id
+        id,
+        lb: `http://localhost:${environment.PORT}`
     });
 }

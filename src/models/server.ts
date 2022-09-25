@@ -1,16 +1,17 @@
 import express, { Application } from 'express';
-import userRoutes from '../routes/users'
+import userRoutes from '../routes/users';
+import environment from '../utils/environment';
 
 class Server {
     private app: Application;
-    private port: string;
+    private port: string | number;
     private apiPaths = {
         users: '/api/users'
     }
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '3000';
+        this.port = environment.PORT;
 
         this.routes();
     }
